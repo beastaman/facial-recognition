@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100vh;
+  background-color: $bg-green;
+}
+
+#container {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+video, canvas {
+  // -moz-transform: scale(-1, 1);
+  // -webkit-transform: scale(-1, 1);
+  // -o-transform: scale(-1, 1);
+  // -ms-transform: scale(-1, 1);
+  // transform: scale(-1, 1);
+  width: 100%;
+  height: calc(100% - 200px);
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.box-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  background-color: $bg-pink;
+  overflow: hidden;
+  text-align: center;
+  padding: 0 1.5rem;
+  h1 {
+    margin-top: 2rem;
+    color: $txt-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+    padding: 1.5rem 2.8rem;
+    border-radius: 4rem;
+  }
+  .line {
+    width: 100%;
+    height: 0.4rem;
+    border-radius: 4rem;
+    background-color: $bg-line;
+    position: relative;
+    overflow: hidden;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $bg-line-bar;
+      animation-name: line;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+    }
+  }
+  p {
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: $txt-color;
+  }
+  button {
+    font-family: "Roboto", sans-serif;
+    border: 0;
+    outline: none;
+    background-color: $bg-green;
+    cursor: pointer;
+    
+  }
+}
+
+@keyframes line {
+  0% {
+      width: 0;
+  }
+  25% {
+      width: 25%;
+  }
+  50% {
+      width: 50%;
+  }
+  75% {
+      width: 75%;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .box-content {
+    .line {
+      width: 40%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    background-color: $bg-green;
+  }
+  video, canvas {
+    width: 500px;
+  }
+}
